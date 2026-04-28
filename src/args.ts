@@ -1,5 +1,3 @@
-import type { ParsedArgs } from 'citty'
-
 export const args = {
     project: {
         type: 'string',
@@ -17,5 +15,3 @@ export const args = {
         default: false,
     },
 } as const
-
-export type CommandArgs = ParsedArgs<typeof args>
