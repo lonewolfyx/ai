@@ -3,6 +3,7 @@ export const args = {
         type: 'string',
         description: '项目名称',
         default: '',
+        alias: 'p',
     },
     agent: {
         type: 'string',
