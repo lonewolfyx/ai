@@ -1,4 +1,5 @@
 import { createMain, defineCommand } from 'citty'
+import { args } from '@/args.ts'
 import { description, name, version } from '../package.json'
 
 const command = defineCommand({
@@ -7,6 +8,7 @@ const command = defineCommand({
         version,
         description,
     },
+    args,
     run({ args }) {
         console.log(args)
     },
