@@ -1,7 +1,8 @@
 import type { CommandArgs, IAiConfig, IConfig } from '@/types'
 import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 import { findUp } from 'find-up'
-import { ROOT_PATH } from '@/constant.ts'
+import { CLIENT_PATH, ROOT_PATH } from '@/constant.ts'
 
 export const resolveConfig = async (options: CommandArgs): Promise<IConfig> => {
     let projects: IAiConfig = {}
@@ -16,8 +17,14 @@ export const resolveConfig = async (options: CommandArgs): Promise<IConfig> => {
         projects = JSON.parse(await readFile(projectConfigPath, 'utf-8')) as IAiConfig
     }
 
+    const client_name = path.basename(CLIENT_PATH)
+
     return {
         ...options,
+        client: {
+            name: client_name,
+            path: CLIENT_PATH,
+        },
         projects,
     } as IConfig
 }

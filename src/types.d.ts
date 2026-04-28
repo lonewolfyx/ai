@@ -13,5 +13,9 @@ export interface IAiConfig {
 }
 
 export type IConfig = CommandArgs & {
+    client: {
+        name: string
+        path: string
+    }
     projects: IAiConfig
 }
