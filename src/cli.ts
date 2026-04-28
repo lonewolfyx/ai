@@ -7,20 +7,6 @@ const command = defineCommand({
         version,
         description,
     },
-    setup() {
-        console.log('Setup')
-    },
-    cleanup() {
-        console.log('Cleanup')
-    },
-    args: {
-        cwd: {
-            type: 'string',
-            description: 'Current working directory',
-            alias: 'c',
-            default: process.cwd(),
-        },
-    },
     run({ args }) {
         console.log(args)
     },
