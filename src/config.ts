@@ -4,7 +4,7 @@ import path from 'node:path'
 import { findUp } from 'find-up'
 import { CLIENT_PATH, ROOT_PATH } from '@/constant.ts'
 
-export const resolveConfig = async (options: CommandArgs): Promise<IConfig> => {
+export async function resolveConfig(options: CommandArgs): Promise<IConfig> {
     let projects: IAiConfig = {}
     const projectConfigPath = await findUp('ai.config.json', {
         cwd: ROOT_PATH,
